@@ -76,19 +76,17 @@ export default function StickyBar({ selected }: { selected?: SelectedInfo }) {
           >
             £{selected.price.toLocaleString()}
           </Typography>
+          {selected.restricted && (
+            <Chip
+              icon={<WarningAmberIcon fontSize="small" />}
+              label="PRIVATE LAND ONLY"
+              size="small"
+              color="warning"
+              sx={{ marginLeft: 2, flexShrink: 0, fontWeight: 700 }}
+            />
+          )}
         </Box>
       </Box>
-
-      {/* warning chip – always visible */}
-      {selected.restricted && !isXs && (
-        <Chip
-          icon={<WarningAmberIcon fontSize="small" />}
-          label="PRIVATE LAND ONLY"
-          size="small"
-          color="warning"
-          sx={{ flexShrink: 0, fontWeight: 700 }}
-        />
-      )}
 
       {/* continue */}
       <Button
